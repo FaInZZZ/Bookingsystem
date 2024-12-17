@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Bookingdata;
 
@@ -28,4 +29,12 @@ class BookingController extends Controller
         $booking->save();
       
     }
+
+    public function index(): View {
+
+        $bookinginfo = Bookingdata::all();
+        return view('viewbooking')->with('bookinginfo', $bookinginfo);
+
+    }
+
 }
